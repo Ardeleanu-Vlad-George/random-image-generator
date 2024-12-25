@@ -9,4 +9,20 @@
 
 #define MAX_CLA_COUNT (MIN_CLA_COUNT+OPT_COUNT*2)
 
+#define R_MASK '\x1'
+
+#define G_MASK '\x2'
+
+#define B_MASK '\x4'
+
+#define A_MASK '\x8'
+
+#define R_MASK '\x1'
+
+#define G_MASK '\x2'
+
+#define B_MASK '\x4'
+
+#define A_MASK '\x8'
+
 #endif//_DEFS_HPP_

@@ -1,12 +1,9 @@
-#include <iostream>
 #include <SFML/Graphics.hpp>
-#include <cstdlib>
-#include <cstddef>
-#include <ctime>
-#include <cstring>
+#include <iostream>
 #include "defs.hpp"
-#include "io.hpp"
 #include "comp.hpp"
+#include <cstring>
+#include "io.hpp"
 
 
 int main(int argc, char *argv[]){
