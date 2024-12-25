@@ -1,22 +1,22 @@
-#ifndef _DEFS_COLOR_HPP_
-#define _DEFS_COLOR_HPP_
+#ifndef _DEFS_MASK_HPP_
+#define _DEFS_MASK_HPP_
 
-#define R_FLAG    '\x01'
+#define control_r         '\x01'
 
-#define G_FLAG    '\x02'
+#define control_g         '\x02'
 
-#define B_FLAG    '\x04'
+#define control_b         '\x04'
 
-#define A_FLAG    '\x08'
+#define control_a         '\x08'
 
-#define NULL_MASK '\x00'
+#define control_a_rnd     '\x10'
 
-#define R_DEFAULT '\xff'
+#define on(mask, type)    (mask |= control_##type)
 
-#define G_DEFAULT '\xff'
+#define full_off(mask)    (mask = '\x00')
 
-#define B_DEFAULT '\xff'
+#define ifon(mask, type)  (mask &  control_##type)
 
-#define A_OPAQUE  '\xff'
+#define inactive(mask)    (mask == '\x00')
 
-#endif//_DEFS_COLOR_HPP_
+#endif//_DEFS_MASK_HPP_

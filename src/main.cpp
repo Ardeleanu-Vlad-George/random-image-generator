@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
+#include "defs_mask.hpp"
+#include "defs_cla.hpp"
 #include <iostream>
-#include "defs.hpp"
 #include "comp.hpp"
 #include <cstring>
 #include "io.hpp"
@@ -22,7 +23,7 @@ int main(int argc, char *argv[]){
   sf::Color clr = color_from_cla(argc, argv, mask);
 
   start_rand();
-  sf::Image img = NULL_MASK == mask ? rand_imag(x, y) : rand_imag(x, y, mask, clr);
+  sf::Image img = inactive(mask) ? rand_imag(x, y) : rand_imag(x, y, mask, clr);
   img.saveToFile(name);
   return 0;
 }
