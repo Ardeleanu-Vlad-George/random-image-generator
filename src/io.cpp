@@ -1,4 +1,6 @@
 #include "io.hpp"
+#include "defs_args.hpp"
+#include <unistd.h>
 
 std::ostream& log_help(std::ostream& os){
   os<<"First args must be the following three in the next order\nGive the following mandatory args in the next order\n";
@@ -20,4 +22,14 @@ std::ostream& log_cla_err(std::ostream& os, int err, int min, int max){
   os<<"Give at least "<<min<<'\n';
   os<<"Give at most  "<<max<<'\n';
   return log_help(os);
+}
+
+sf::Color extract_masks(char** cla_args, int& activ_mask){
+  sf::Color clr(R_DEFAULT, G_DEFAULT, R_DEFAULT, A_OPAQUE);
+  activ_mask = NULL_MASK;
+  int opt;
+
+  while((opt = getopt(ar)))
+
+  return clr;
 }

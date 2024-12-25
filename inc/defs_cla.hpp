@@ -1,28 +1,12 @@
-#ifndef _DEFS_HPP_
-#define _DEFS_HPP_
+#ifndef _DEFS_CLA_HPP_
+#define _DEFS_CLA_HPP_
 
-#define HELP_STR "help"
+#define HELP_STR      "help"
 
 #define MIN_CLA_COUNT 3
 
-#define OPT_COUNT 4 
+#define OPT_COUNT     4 
 
 #define MAX_CLA_COUNT (MIN_CLA_COUNT+OPT_COUNT*2)
 
-#define R_MASK '\x1'
-
-#define G_MASK '\x2'
-
-#define B_MASK '\x4'
-
-#define A_MASK '\x8'
-
-#define R_MASK '\x1'
-
-#define G_MASK '\x2'
-
-#define B_MASK '\x4'
-
-#define A_MASK '\x8'
-
-#endif//_DEFS_HPP_
+#endif//_DEFS_CLA_HPP_
