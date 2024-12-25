@@ -18,9 +18,11 @@ int main(int argc, char *argv[]){
   int x = atoi(argv[1]), y = atoi(argv[2]);
   char *name = new char[strlen(argv[3])];
   strcpy(name, argv[3]);
+  int mask;
+  sf::Color clr = color_from_cla(argc, argv, mask);
 
   start_rand();
-  sf::Image img = rand_imag(x, y);
+  sf::Image img = NULL_MASK == mask ? rand_imag(x, y) : rand_imag(x, y, mask, clr);
   img.saveToFile(name);
   return 0;
 }

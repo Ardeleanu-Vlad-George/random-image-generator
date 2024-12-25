@@ -1,6 +1,7 @@
 #include "io.hpp"
 #include "defs_args.hpp"
 #include <unistd.h>
+#include <cstdlib>
 
 std::ostream& log_help(std::ostream& os){
   os<<"First args must be the following three in the next order\nGive the following mandatory args in the next order\n";
@@ -24,12 +25,33 @@ std::ostream& log_cla_err(std::ostream& os, int err, int min, int max){
   return log_help(os);
 }
 
-sf::Color extract_masks(char** cla_args, int& activ_mask){
-  sf::Color clr(R_DEFAULT, G_DEFAULT, R_DEFAULT, A_OPAQUE);
+sf::Color color_from_cla(int cla_count, char* cla_args[], int& activ_mask){
+  sf::Color clr(R_DEFAULT, G_DEFAULT, B_DEFAULT, A_OPAQUE);
   activ_mask = NULL_MASK;
   int opt;
 
-  while((opt = getopt(ar)))
+  while((opt = getopt(cla_count, cla_args, "rgba")) != -1){
+    switch (opt){
+      case 'r':
+        activ_mask|=R_FLAG; 
+        !optarg ? '\0' : clr.r = atoi(optarg);
+        break;
+      case 'g':
+        activ_mask|=G_FLAG; 
+        !optarg ? '\0' : clr.g = atoi(optarg);
+        break;
+      case 'b':
+        activ_mask|=B_FLAG; 
+        !optarg ? '\0' : clr.b = atoi(optarg);
+        break;
+      case 'a':
+        activ_mask|=A_FLAG; 
+        !optarg ? '\0' : clr.a = atoi(optarg);
+        break;
+      default:
+        break;
+    }
+  }
 
   return clr;
 }
