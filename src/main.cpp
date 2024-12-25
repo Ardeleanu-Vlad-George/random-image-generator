@@ -14,7 +14,7 @@ int main(int argc, char *argv[]){
     log_help(std::clog);
     return 1;
   }
-  if(MIN_CLA_COUNT >= argc-1 || argc-1 >= MAX_CLA_COUNT){
+  if(MIN_CLA_COUNT > argc-1 || argc-1 > MAX_CLA_COUNT){
     log_cla_err(std::clog, argc-1, MIN_CLA_COUNT, MAX_CLA_COUNT);
     return -1;
   }
