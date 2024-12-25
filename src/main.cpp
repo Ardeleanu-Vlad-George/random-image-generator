@@ -5,20 +5,17 @@
 #include <ctime>
 #include <cstring>
 #include "defs.hpp"
+#include "io.hpp"
+#include "comp.hpp"
 
 
 int main(int argc, char *argv[]){
   if(2 == argc && 0 == strcmp(HELP_STR, argv[1])){
+    log_help(std::clog);
     return 1;
   }
-  if(4 != argc){
-    std::cout<<"At least three arguments needed\n";
-    std::cout<<"\tWidth, height and file name, needed as first args\n";
-    std::cout<<"\tNext dash options are permited\n";
-    std::cout<<"\t\tr <value> - all reds the same, random if not activated\n";
-    std::cout<<"\t\tg <value> - all greens the sam, random if not activated\n";
-    std::cout<<"\t\tb <value> - all blues the sam, random if not activated\n";
-    std::cout<<"\t\ta <value> - all alphas the same, if no value is given, the alphas are random, if not activated, the alphas are opaque\n";
+  if(MIN_CLA_COUNT >= argc-1 || argc-1 >= MAX_CLA_COUNT){
+    log_cla_err(std::clog, argc-1, MIN_CLA_COUNT, MAX_CLA_COUNT);
     return -1;
   }
   int x = atoi(argv[1]), y = atoi(argv[2]);

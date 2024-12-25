@@ -1,5 +1,5 @@
 TRG := out/randimagen
-OBJ := obj/main.o
+OBJ := obj/main.o obj/io.o obj/comp.o
 
 $(TRG): $(OBJ)
 	g++ -o $@ $^ -lsfml-graphics -lsfml-system
