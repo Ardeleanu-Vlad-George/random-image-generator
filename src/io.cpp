@@ -6,12 +6,12 @@ std::ostream& log_help(std::ostream& os){
   os<<"\t2. height of image\n";
   os<<"\t3. name   of storage file\n";
   os<<"After that, the next options can be activated\n";
-  os<<"\tr <hex_value> - reds   of all pixels are the same, default, if value is missing\n";
-  os<<"\tg <hex_value> - greens of all pixels are the same, default if value is missing\n";
-  os<<"\tb <hex_value> - blues  of all pixels are the same, default if value is missing\n";
+  os<<"\tr <hex_value> - reds   of all pixels are the same value, default one, if value is missing\n";
+  os<<"\tg <hex_value> - greens of all pixels are the same value, default one, if value is missing\n";
+  os<<"\tb <hex_value> - blues  of all pixels are the same value, default one, if value is missing\n";
   os<<"\ta <hex_value> - alphas of all pixels are the same, random values for each pixel, if value is missing\n";
   os<<"If a color option is not activated, than the component is randomnly selected\n";
-  os<<"If the alpha value is not activated than the, if the alpha is op";
+  os<<"If the alpha option is not activated, than it's opaque\n";
   return os;
 }
 
