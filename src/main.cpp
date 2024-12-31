@@ -30,7 +30,9 @@ int main(int argc, char *argv[]){
   */
   rnd_rgba_img::start_rand_gen();
   rnd_rgba_img img_gen(x*y);
+	img_gen.alloc();
   sf::Image img = inactive(mask) ? img_gen(x) : img_gen(x, mask, clr);
+	img_gen.dealloc();
   img.saveToFile(name);
   return 0;
 }
