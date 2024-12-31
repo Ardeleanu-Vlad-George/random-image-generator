@@ -6,6 +6,7 @@
 #include <cstring>
 #include "io.hpp"
 
+#include "rnd_rgba_img.hpp"
 
 int main(int argc, char *argv[]){
   if(2 == argc && 0 == strcmp(HELP_STR, argv[1])){
@@ -22,8 +23,14 @@ int main(int argc, char *argv[]){
   int mask;
   sf::Color clr = color_from_cla(argc, argv, mask);
 
+  /*
   start_rand();
   sf::Image img = inactive(mask) ? rand_imag(x, y) : rand_imag(x, y, mask, clr);
+  img.saveToFile(name);
+  */
+  rnd_rgba_img::start_rand_gen();
+  rnd_rgba_img img_gen(x*y);
+  sf::Image img = inactive(mask) ? img_gen(x) : img_gen(x, mask, clr);
   img.saveToFile(name);
   return 0;
 }
