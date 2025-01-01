@@ -9,7 +9,7 @@ void rnd_rgba_img::start_rand_gen(){
 }
 
 rnd_rgba_img::rnd_rgba_img(int fs)
-  :full_size(fs)
+  :full_size(fs), data(NULL), data_int(NULL)
     {}
 
 bool rnd_rgba_img::alloc(){
@@ -19,7 +19,8 @@ bool rnd_rgba_img::alloc(){
 }
 
 bool rnd_rgba_img::dealloc(){
-  delete data;
+  if(data)
+    delete data;
   data = NULL;
   data_int = NULL;
   return true;
@@ -29,15 +30,11 @@ sf::Image rnd_rgba_img::operator()(int width){
 
   height = full_size/width;
   reminder = full_size%width;
-printf("\nDEBUG_rem=%d\n", reminder);
-printf("\nDEBUG_size=%d\n", full_size);
 
   sf::Uint8 *src = data+4*reminder;
   int *src_int = (int*) src;
 
   for(int i=0; i < width * height; i++){
-printf("\nDEBUG_idx=%d\n", i);
-printf("\nDEBUG_ptr=%p\n", src_int);
     src_int[i] = rand();
     src[4*i+3] = '\xff';
   }
