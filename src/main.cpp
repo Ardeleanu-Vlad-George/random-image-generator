@@ -5,6 +5,7 @@
 #include "comp.hpp"
 #include <cstring>
 #include "io.hpp"
+#include "cla.hpp"
 
 #include "rnd_rgba_img.hpp"
 
