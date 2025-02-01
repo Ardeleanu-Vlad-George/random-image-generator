@@ -8,11 +8,10 @@
 #include "cla.hpp"
 
 #include "rnd_rgba_img.hpp"
-#include "common_cla_op.h"
 
 int main(int argc, char *argv[]){
-  //if(2 == argc && 0 == strcmp(HELP_STR, argv[1])){
-  if(check_help_cmd(argc, argv)){
+  if(2 == argc && 0 == strcmp(HELP_STR, argv[1])){
+  //if(check_help_cmd(argc, argv)){
     log_help(std::clog);
     return 1;
   }
